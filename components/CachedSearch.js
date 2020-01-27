@@ -30,16 +30,16 @@ function Hit({ hit }) {
 const infiniteHitCache = {
   read() {
     try {
-      return JSON.parse(localStorage.getItem('ais-infinite-hits')) || [];
+      return JSON.parse(sessionStorage.getItem('ais-infinite-hits')) || [];
     } catch (e) {
       return [];
     }
   },
   write(hits) {
-    if (typeof localStorage === 'undefined') {
+    if (typeof sessionStorage === 'undefined') {
       return;
     }
-    localStorage.setItem('ais-infinite-hits', JSON.stringify(hits));
+    sessionStorage.setItem('ais-infinite-hits', JSON.stringify(hits));
   },
 };
 
