@@ -41,6 +41,29 @@ I've chosen to use `sessionStorage`, not `localStorage`, since `localStorage` is
 
 The product page has its own page, so it can have its own life cycle and respectively call `getInitialProps` to request the information (in this case from Algolia, but that could be any method).
 
+Note that scroll restoration in this example is done by the browser itself. If browsers _do not_ behave as expected, manual scroll restoration can be done [as described in this issue](https://github.com/zeit/next.js/issues/3303#issuecomment-529053770):
+
+```js
+useEffect(() => {
+  window.history.scrollRestoration = "manual";
+
+  const cachedScroll = [];
+
+  Router.events.on("routeChangeStart", () => {
+    cachedScroll.push([window.scrollX, window.scrollY]);
+  });
+
+  Router.beforePopState(() => {
+    const [x, y] = cachedScroll.pop();
+    setTimeout(() => {
+      window.scrollTo(x, y);
+    }, 100);
+
+    return true;
+  });
+}, [])
+```
+
 ## Constraints
 
 There's a lot of constraints with these options, so here are the ones I took in account making the demo:
