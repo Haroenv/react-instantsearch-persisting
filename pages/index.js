@@ -21,7 +21,7 @@ function Index() {
           </Link>
         </li>
         <li>
-          <Link href="/search-prefetch">
+          <Link href="/search-cached">
             <a>Fetching the infinite hits again via a cache</a>
           </Link>
         </li>

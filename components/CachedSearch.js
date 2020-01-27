@@ -43,7 +43,7 @@ const infiniteHitCache = {
   },
 };
 
-export function PrefetchSearch(props) {
+export function CachedSearch(props) {
   return (
     <InstantSearch
       searchClient={props.searchClient}
@@ -68,7 +68,7 @@ export function PrefetchSearch(props) {
       <footer>
         <div>
           See{' '}
-          <a href="https://github.com/algolia/react-instantsearch/tree/master/examples/next">
+          <a href="https://github.com/Haroenv/react-instantsearch-persisting/blob/master/components/CachedSearch.js">
             source code
           </a>{' '}
           on github

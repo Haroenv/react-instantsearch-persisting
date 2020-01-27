@@ -1,3 +1,3 @@
 export * from './head';
 export * from './ModalSearch';
-export * from './PrefetchSearch';
+export * from './CachedSearch';

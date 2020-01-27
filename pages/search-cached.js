@@ -5,7 +5,7 @@ import { withRouter } from 'next/router';
 import qs from 'qs';
 import algoliasearch from 'algoliasearch/lite';
 import { findResultsState } from 'react-instantsearch-dom/server';
-import { Head, PrefetchSearch } from '../components';
+import { Head, CachedSearch } from '../components';
 
 const searchClient = algoliasearch(
   'latency',
@@ -41,7 +41,7 @@ class Page extends React.Component {
 
   static async getInitialProps({ asPath }) {
     const searchState = pathToSearchState(asPath);
-    const resultsState = await findResultsState(PrefetchSearch, {
+    const resultsState = await findResultsState(CachedSearch, {
       ...DEFAULT_PROPS,
       searchState,
     });
@@ -81,7 +81,7 @@ class Page extends React.Component {
     return (
       <>
         <Head title="Home" />
-        <PrefetchSearch
+        <CachedSearch
           {...DEFAULT_PROPS}
           searchState={this.state.searchState}
           resultsState={this.props.resultsState}

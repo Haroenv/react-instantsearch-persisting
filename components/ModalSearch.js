@@ -9,6 +9,7 @@ import {
   InstantSearch,
 } from 'react-instantsearch-dom';
 import Router from 'next/router';
+import Link from 'next/link';
 
 function HitComponent({ hit }) {
   const hitRef = useRef(null);
@@ -112,6 +113,9 @@ export function ModalSearch(props) {
     >
       <Configure hitsPerPage={12} />
       <header>
+        <Link href="/">
+          <a>back</a>
+        </Link>
         <h1>React InstantSearch + Next.Js</h1>
         <SearchBox />
       </header>
@@ -121,7 +125,7 @@ export function ModalSearch(props) {
       <footer>
         <div>
           See{' '}
-          <a href="https://github.com/algolia/react-instantsearch/tree/master/examples/next">
+          <a href="https://github.com/Haroenv/react-instantsearch-persisting/blob/master/components/ModalSearch.js">
             source code
           </a>{' '}
           on github
