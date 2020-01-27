@@ -64,6 +64,8 @@ useEffect(() => {
 }, [])
 ```
 
+Note that codesandbox does not restore scroll position, opening the page in a full window avoids the issue.
+
 ## Constraints
 
 There's a lot of constraints with these options, so here are the ones I took in account making the demo:
